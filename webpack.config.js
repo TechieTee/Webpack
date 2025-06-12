@@ -42,12 +42,15 @@ export default {
       template: 'index.html',
     }),
   ],
-  devServer: {
-    static: './dist',
-    open: true,
-    port: 3000,
-    hot: true,
-    historyApiFallback: true,
+devServer: {
+  static: {
+    directory: path.resolve(__dirname, 'public'),
   },
+  port: 3000,
+  open: true,
+  hot: true,
+  historyApiFallback: true,
+},
+
   mode: 'development',
 };

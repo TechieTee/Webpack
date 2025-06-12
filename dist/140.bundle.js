@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkevolve_quiz=self.webpackChunkevolve_quiz||[]).push([[140],{140:(e,u,n)=>{n.r(u),n.d(u,{default:()=>t});var s=n(848);const t=function(){return(0,s.jsx)("h1",{children:"404 - Page Not Found"})}}}]);
