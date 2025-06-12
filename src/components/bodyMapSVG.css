@@ -1,0 +1,149 @@
+.body-map-svg-container {
+  width: 100%;
+
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-svg {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 157px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.body-svg.face-view {
+  margin-top: 1rem;
+  max-width: 400px; /* Uncommented and increased */
+  max-height: 400px; /* Uncommented and increased */
+  width: auto; /* Changed from 100% to allow scaling */
+  height: auto; /* Ensure aspect ratio is maintained */
+  display: block;
+  margin: 0 auto;
+}
+.selected-area-indicator {
+  fill: #70c1b3;
+  stroke: #70c1b3;
+  stroke-width: 8px;
+  pointer-events: none;
+}
+
+.body-area-path {
+  fill: rgba(112, 193, 179, 0.8);
+  stroke: #fff;
+  stroke-width: 4px;
+
+  animation: pulse 2s infinite;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.body-area-path.hovered {
+  fill: #70c1b3;
+  stroke: #fff;
+  stroke-width: 4px;
+  /* transform: scale(1.2); */
+}
+.body-area-path:hover {
+  fill: #70c1b3;
+}
+.body-area-path.selected {
+  fill: #70c1b3;
+  stroke: #70c1b3;
+  stroke-width: 2px;
+  stroke-dasharray: 0; /* Remove dashes for dots */
+  transform: scale(1.3);
+}
+.area-tooltip {
+  font-size: 14px;
+  fill: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    stroke-opacity: 0.7;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+  100% {
+    stroke-opacity: 0.7;
+  }
+}
+.info-message {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 10;
+  max-width: 80%;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.body-area-path {
+  fill: #70c1b3;
+  stroke: white;
+  /* stroke-width: 1.5; */
+  transition: all 0.2s ease;
+}
+
+.body-area-path.hovered {
+  fill: #70c1b3;
+}
+
+.plus-icon {
+  fill: white;
+  font-size: 14px;
+  font-weight: 300;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .body-svg {
+    width: 100%;
+    max-width: 300px;
+    height: 60vh;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* .body-svg.face-view {
+    margin-top: 1rem;
+    max-width: 400px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .body-svg.face-view {
+    max-width: 300px;
+    height: auto;
+  } */
+}

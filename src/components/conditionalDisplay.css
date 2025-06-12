@@ -1,0 +1,83 @@
+.condition-grid {
+  /* display: grid; */
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+}
+
+.condition-item {
+  background: white;
+  border-bottom: 1px solid #dac4b8;
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.condition-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+  background-color: #fbf8f2;
+}
+
+.condition-item.selected {
+  background-color: #f5ede1; /* Slightly darker shade for selected state */
+}
+
+.condition-item:active {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+  background-color: #fbf8f2;
+}
+.concerns-header-text {
+  text-align: left;
+  color: black;
+  font-size: 30px;
+}
+
+.condition-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-checkbox {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #dac4b8;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-checkbox.checked {
+  color: white;
+  border: 1px solid black;
+  background-color: black;
+}
+
+.check-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.custom-checkbox.checked::after {
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+  .condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .condition-item {
+    padding: 12px 8px;
+  }
+}
