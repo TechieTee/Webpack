@@ -1,11 +1,10 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
- const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 
 export default {
   entry: './src/main.tsx',
@@ -22,7 +21,11 @@ export default {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env',  ['@babel/preset-react', { runtime: 'automatic' }], '@babel/preset-typescript'],
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }],
+              '@babel/preset-typescript',
+            ],
           },
         },
       },
@@ -40,27 +43,19 @@ export default {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-    }),
+    new HtmlWebpackPlugin({ template: 'index.html' }),
     new CopyWebpackPlugin({
-    patterns: [
-      { from: 'public', to: '' }
-    ]
-  })
+      patterns: [{ from: 'public', to: '' }], // flatten into dist/
+    }),
   ],
- 
-
-
-devServer: {
-  static: {
-    directory: path.resolve(__dirname, 'public'),
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    historyApiFallback: true,
   },
-  port: 3000,
-  open: true,
-  hot: true,
-  historyApiFallback: true,
-},
-
   mode: 'development',
 };
