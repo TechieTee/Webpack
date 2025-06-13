@@ -4,6 +4,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+ const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 export default {
   entry: './src/main.tsx',
@@ -41,7 +43,15 @@ export default {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
+    new CopyWebpackPlugin({
+    patterns: [
+      { from: 'public', to: '' }
+    ]
+  })
   ],
+ 
+
+
 devServer: {
   static: {
     directory: path.resolve(__dirname, 'public'),
